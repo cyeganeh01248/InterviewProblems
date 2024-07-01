@@ -1,0 +1,63 @@
+{% extends "base.html" %} {% block title %}Problem 1{% endblock %} {% block
+content %}
+<script>
+    function searchComments(e) {
+        document.querySelector("#search_comments").innerHTML = "";
+        fetch(`/search?` + new URLSearchParams([["q", e.target.value]]))
+            .then((resp) => resp.json())
+            .then((json) => {
+                for (let [user, comment] of json) {
+                    let el = document.createElement("div");
+                    el.className = "comment";
+                    let el_u = document.createElement("h3");
+                    el_u.innerHTML = user;
+                    let el_c = document.createElement("p");
+                    el_c.innerHTML = comment;
+                    el.appendChild(el_u);
+                    el.appendChild(el_c);
+                    document.querySelector("#search_comments").appendChild(el);
+                }
+            });
+        document.querySelector("#q").innerHTML = e.target.value;
+    }
+</script>
+<h1>Hello!</h1>
+<p>Welcome to our company test page! Now supporting rich text comments!</p>
+<hr />
+<br />
+{% for comment in comments %}
+<div class="comment">
+    <h3>{{ comment[0] | safe }}</h3>
+    <p>{{ comment[1] | safe }}</p>
+</div>
+{% endfor %} {% if username %}
+<br />
+<div id="add-comment">
+    <h2>Comment</h2>
+    <form action="/comment" method="post">
+        <textarea name="comment"></textarea><br />
+        <button>Add Comment</button>
+    </form>
+</div>
+<div id="search" class="search">
+    <h2>Search comments</h2>
+    <div>Search for <span id="q"></span></div>
+    <input onkeyup="searchComments(event)" />
+    <br />
+    <br />
+
+    <div id="search_comments"></div>
+</div>
+<br />
+{% endif %}
+<hr />
+{% if username %}
+<form action="/logout" method="post">
+    {{ username | safe }} <button>Log out</button>
+</form>
+{% else %}
+<form action="/login" method="post">
+    <input name="username" placeholder="Who are you?" />
+    <button>Login</button>
+</form>
+{% endif %} {% endblock %}

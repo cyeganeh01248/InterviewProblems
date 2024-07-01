@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.comment {
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 4px;
+    margin-bottom: 4px;
+    width: 300px;
+    word-wrap: break-word;
+}
+#add-comment {
+
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 4px;
+    margin-bottom: 4px;
+    width: 300px;
+    textarea {
+        resize: none;
+        width: 100%;
+        height: 5rem;
+        border-radius: 6px;
+        padding: 3px;
+    }
+}
+#search {
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 4px;
+    margin-bottom: 4px;
+    width: 400px;
+}
+body {
+    padding: 10px
+}

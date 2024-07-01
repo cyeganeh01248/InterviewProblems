@@ -1,0 +1,9 @@
+node_modules
+bun.lockb
+package-lock.json
+.idea
+.venv
+.cache
+p2/target
+.DS_Store
+bundle*

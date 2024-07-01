@@ -1,0 +1,21 @@
+{
+    "name": "p5-front",
+    "module": "src/index.tsx",
+    "type": "module",
+    "scripts": {
+        "build-frontend-bundle": "bun build --outfile ../backend/src/bundle.js --target bun .",
+        "build-frontend-bundle-dev": "bun build --watch --sourcemap=inline --outfile ../backend/src/bundle.js --target bun ."
+    },
+    "devDependencies": {
+        "@types/bun": "latest",
+        "@types/react": "^18.3.3",
+        "@types/react-dom": "^18.3.0"
+    },
+    "peerDependencies": {
+        "typescript": "^5.0.0"
+    },
+    "dependencies": {
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
+    }
+}

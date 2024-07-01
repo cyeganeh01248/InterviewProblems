@@ -1,0 +1,10 @@
+{
+    "name": "p4",
+    "module": "src/index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node src/index.js",
+        "clean-install": "rm -rf node_modules && npm i"
+    },
+    "dependencies": {}
+}
